@@ -4,12 +4,21 @@ The purpose of this proyect is send everyone on CTA a
 birthday card to their email  
 
 
-To do
+To do list
 
-BD called Birthday
+BD called Birthday ✅
 
--table - user
+-table - user ✅
 
--ID -name -email -birthday 
+-ID -name -email -birthday ✅
 
--Personal congrats card´s html and css
+-Personal congrats card´s html and css ✅
+
+-Add everyone's email
+
+-Test functions  ✅
+
+-Search for improvements
+
+
+
