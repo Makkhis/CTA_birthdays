@@ -1,5 +1,5 @@
 body {
-  background-color: #f6f6f6;
+  background-color: #2af4d6;
   font-family: 'Lora', serif;
   display: flex;
   justify-content: center;
@@ -10,7 +10,7 @@ body {
 
 .container {
   text-align: center;
-  background-color: #ffffff;
+  background-color: #842121;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
