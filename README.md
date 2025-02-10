@@ -1,6 +1,6 @@
 <div align="center">
   <h1 align="center">
-    Docusaurus
+    Documentation 
     <br />
     <br />
     <a href="https://docusaurus.io">
