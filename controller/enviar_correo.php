@@ -47,7 +47,7 @@ if ($row = mysqli_fetch_assoc($result)) {
         $mail->isHTML(true);
         $mail->Subject = 'Happy Birthday, ' . htmlspecialchars($nombre);
 
-        // Agregar imagen embebida
+        // Agregar imagen
         $mail->AddEmbeddedImage(__DIR__ . '/../Images/regalo.gif', 'regalo', 'regalo.gif', 'base64', 'image/gif');
 
         // Cargar y modificar el contenido del correo
