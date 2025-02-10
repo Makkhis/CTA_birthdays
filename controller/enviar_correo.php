@@ -1,6 +1,6 @@
 <?php
 require '../vendor/autoload.php'; // Cargar librerías de Composer
-require '../Controlador/conexion.php'; // Conexión a la BD
+require '../controller/conexion.php'; // Conexión a la BD
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -14,21 +14,20 @@ $dotenv->load();
 $fecha_hoy = date("m-d");
 
 // Consulta para obtener al cumpleañero
-$sql = "SELECT namee, email FROM user WHERE DATE_FORMAT(cumpleanios, '%m-%d') = ?";
+$sql = "SELECT name, email FROM user WHERE DATE_FORMAT(birthday, '%m-%d') = ?";
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, "s", $fecha_hoy);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
 if ($row = mysqli_fetch_assoc($result)) {
-    $nombre = $row['namee'];
+    $nombre = $row['name'];
     $email = $row['email'];
 
     // Crear instancia de PHPMailer
     $mail = new PHPMailer(true);
 
     try {
-        // Verificar que la variable no está vacía
         if (empty($_ENV['SMTP_USER'])) {
             throw new Exception("Error: La dirección de correo del remitente está vacía.");
         }
@@ -42,15 +41,20 @@ if ($row = mysqli_fetch_assoc($result)) {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
 
-
         // Configuración del correo
         $mail->setFrom($_ENV['SMTP_USER'], 'Equipo CTA');
         $mail->addAddress($email, $nombre);
         $mail->isHTML(true);
         $mail->Subject = 'Happy Birthday, ' . htmlspecialchars($nombre);
 
-        // Contenido del correo
-        $mail->Body = file_get_contents('../Vista/index.php'); // Cargar el HTML de la felicitación
+        // Agregar imagen embebida
+        $mail->AddEmbeddedImage(__DIR__ . '/../Images/regalo.gif', 'regalo', 'regalo.gif', 'base64', 'image/gif');
+
+        // Cargar y modificar el contenido del correo
+        $body = file_get_contents('../view/index.php');
+        $body = str_replace('src=""', 'src="cid:regalo"', $body); // Reemplaza el src vacío por cid:regalo
+
+        $mail->Body = $body;
 
         // Enviar correo
         $mail->send();
@@ -59,7 +63,7 @@ if ($row = mysqli_fetch_assoc($result)) {
         echo "Error al enviar el correo: " . $mail->ErrorInfo;
     }
 } else {
-    echo "Hoy no hay cumpleañero.";
+    echo "Hoy no hay cumpleañeros.";
 }
 
 mysqli_close($conn);
