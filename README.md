@@ -13,7 +13,7 @@
 
 **con * se ponen negritas y - para viñetas**
 
--**Hola subtitulo 1**
+- **Hola subtitulo 1**
 
 ## Installation
 
