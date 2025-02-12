@@ -36,7 +36,7 @@ mysqli_close($conn);
     <table style="max-width: 600px; width: 100%; margin: auto; background-color: #ffffff; border-collapse: collapse;">
         <tr>
             <td style="padding: 20px; text-align: center;">
-                <h1 style="color: #333; font-size: 24px; margin: 0;">🎉 ¡Feliz Cumpleaños, <span style="color: #e67e22; font-weight: bold;"><?php echo htmlspecialchars($nombre); ?></span>! 🎉</h1>
+                <h1 style="color: #333; font-size: 24px; margin: 0;">🎉 ¡Feliz Cumpleaños! 🎉 <span style="color: #e67e22; font-weight: bold;"><?php echo htmlspecialchars($nombre); ?></span></h1>
                 <img src="" alt="Regalo" width="300" style="margin: 20px 0;">
                 <p style="color: #555; font-size: 16px; margin: 10px 0;">Hoy es un día especial para ti, y queremos que sepas cuánto valoramos tu presencia en nuestro equipo. ¡Disfruta tu día al máximo! 🎂</p>
                 <p style="color:#666; font-size:14px; font-style:italic; margin: 10px 0;">Saludos cordiales, <br>El equipo de CTA</p>

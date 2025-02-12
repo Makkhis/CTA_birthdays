@@ -17,7 +17,6 @@
     // Crear conexión
     $conn = mysqli_connect($host, $user, $password, $dbname);
 
-    // Envio de la imagen
     
     
 
