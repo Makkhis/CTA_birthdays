@@ -1,7 +1,8 @@
 ## Introduction
 
-On this project, we have a script that sends an email to 
-any whose birthday matches the current day and month
+On this project, we have a .php archive that sends an email to 
+any whose birthday matches the current day and month, to run it 
+a script will need to be used.
 
 
 ## Installation
