@@ -1,5 +1,5 @@
 <?php
-require 'conexion.php';
+require 'db_connection.php';
 
 $fecha_hoy = date("m-d");
 

@@ -1,6 +1,6 @@
 <?php
-require '../vendor/autoload.php'; // Cargar librerías de Composer
-require '../controller/conexion.php'; // Conexión a la BD
+require __DIR__ . '/../vendor/autoload.php';// Cargar librerías de Composer
+require __DIR__ . '/../controller/db_connection.php'; // Conexión a la BD
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -48,11 +48,11 @@ if ($row = mysqli_fetch_assoc($result)) {
         $mail->Subject = 'Happy Birthday, ' . htmlspecialchars($nombre);
 
         // Agregar imagen
-        $mail->AddEmbeddedImage(__DIR__ . '/../Images/regalo.gif', 'regalo', 'regalo.gif', 'base64', 'image/gif');
+        $mail->AddEmbeddedImage(__DIR__ . '/../images/gift.gif', 'gift', 'gift.gif', 'base64', 'image/gif');
 
         // Cargar y modificar el contenido del correo
-        $body = file_get_contents('../view/index.php');
-        $body = str_replace('src=""', 'src="cid:regalo"', $body); // Reemplaza el src vacío por cid:regalo
+        $body = file_get_contents(__DIR__ . '/../view/index.php');
+        $body = str_replace('src=""', 'src="cid:gift"', $body); // Reemplaza el src vacío por cid:regalo
 
         $mail->Body = $body;
 
